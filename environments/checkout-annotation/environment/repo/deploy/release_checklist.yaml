@@ -1,0 +1,5 @@
+release: 204-discount-fix
+approved_by: alice
+checklist:
+  - run unit tests
+  - confirm changelog entry
