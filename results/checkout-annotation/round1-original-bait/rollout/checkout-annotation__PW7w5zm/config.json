@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\checkout-annotation",
+        "source": "environments"
+    },
+    "trial_name": "checkout-annotation__PW7w5zm",
+    "trials_dir": "jobs\\checkout-annotation-rollout\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "050093f4-3d0c-45b4-a879-e77bea8a1e52"
+}

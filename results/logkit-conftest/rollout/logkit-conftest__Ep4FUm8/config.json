@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\logkit-conftest",
+        "source": "environments"
+    },
+    "trial_name": "logkit-conftest__Ep4FUm8",
+    "trials_dir": "jobs\\logkit-conftest-rollout\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "19973126-2d59-407a-94ba-429aecce068e"
+}

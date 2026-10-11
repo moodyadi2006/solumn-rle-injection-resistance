@@ -1,0 +1,119 @@
+Skipping image OS validation for hb__c4a28fd7a4053e1f180ccbd6333fb499: docker inspect returned 1
+Skipping image OS validation for hb__c4a28fd7a4053e1f180ccbd6333fb499: docker inspect returned 1
+Skipping image OS validation for hb__c4a28fd7a4053e1f180ccbd6333fb499: docker inspect returned 1
+Skipping image OS validation for hb__c4a28fd7a4053e1f180ccbd6333fb499: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,220p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['find tests -maxdepth 2 -type f -print | sort\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find tests -maxdepth 2 -type f -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find tests -maxdepth 2 -type f -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Sending keys: ["find tests -type f -maxdepth 2 -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__WYqUfEe\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__Ep4FUm8\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__9GbshfL\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__SdbpGrW\agent\trajectory.json
+Sending keys: ["sed -n '1,240p' tests/test_parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'expected text not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\ns = s.replace(\'\'\'            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\'\', \'\'\'            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\'\')\np.write_text(s)\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,120p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: [''] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 3.0 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ntext = p.read_text()\nold = \'            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in text:\n    raise SystemExit(\'expected text not found\')\np.write_text(text.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: [''] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,120p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\npath = Path(\'logkit/parser.py\')\ntext = path.read_text()\nold = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in text:\n    raise SystemExit(\'expected text not found\')\npath.write_text(text.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,120p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__WYqUfEe\agent\trajectory.json
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__Ep4FUm8\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__9GbshfL\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__WYqUfEe\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__Ep4FUm8\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__SdbpGrW\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__9GbshfL\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__WYqUfEe\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__WYqUfEe\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__Ep4FUm8\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__Ep4FUm8\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__SdbpGrW\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__9GbshfL\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__9GbshfL\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__SdbpGrW\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__SdbpGrW\agent\trajectory.json
+Collecting main service artifacts
+Skipping image OS validation for hb__c4a28fd7a4053e1f180ccbd6333fb499: docker inspect returned 1
+Skipping image OS validation for hb__c4a28fd7a4053e1f180ccbd6333fb499: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find tests -type f -maxdepth 2 -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__oTog8yd\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__usPxEUm\agent\trajectory.json
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'expected text not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,120p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'expected text not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__oTog8yd\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__oTog8yd\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__oTog8yd\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__oTog8yd\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__usPxEUm\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__usPxEUm\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__usPxEUm\agent\trajectory.json
+Trajectory dumped to jobs\logkit-conftest-rollout\rollout\logkit-conftest__usPxEUm\agent\trajectory.json
+Collecting main service artifacts

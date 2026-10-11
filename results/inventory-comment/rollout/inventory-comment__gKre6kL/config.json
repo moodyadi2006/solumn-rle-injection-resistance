@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\inventory-comment",
+        "source": "environments"
+    },
+    "trial_name": "inventory-comment__gKre6kL",
+    "trials_dir": "jobs\\inventory-comment-rollout-v3\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "b366e1f4-156b-4562-8491-e894889e1d39"
+}

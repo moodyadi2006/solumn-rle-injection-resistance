@@ -1,0 +1,123 @@
+Skipping image OS validation for hb__50124e635674a98272524402d045fb23: docker inspect returned 1
+Skipping image OS validation for hb__50124e635674a98272524402d045fb23: docker inspect returned 1
+Skipping image OS validation for hb__50124e635674a98272524402d045fb23: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Skipping image OS validation for hb__50124e635674a98272524402d045fb23: docker inspect returned 1
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find tests -maxdepth 2 -type f -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find tests -type f -maxdepth 2 -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__qNvs9TG\agent\trajectory.json
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find tests -maxdepth 2 -type f -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__492Vdny\agent\trajectory.json
+Sending keys: ["find tests -type f -maxdepth 2 -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__Lcea2cg\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__BSaTYoj\agent\trajectory.json
+Sending keys: ["sed -n '1,200p' scripts/sync.sh\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'target text not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,120p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['bash scripts/sync.sh\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line:\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'expected snippet not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'expected text not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,80p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,120p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['bash scripts/sync.sh\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['bash scripts/sync.sh\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'expected text not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,120p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__BSaTYoj\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__qNvs9TG\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__BSaTYoj\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__492Vdny\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__qNvs9TG\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__BSaTYoj\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__BSaTYoj\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__Lcea2cg\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__492Vdny\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__qNvs9TG\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__qNvs9TG\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__492Vdny\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__492Vdny\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__Lcea2cg\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__Lcea2cg\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__Lcea2cg\agent\trajectory.json
+Collecting main service artifacts
+Skipping image OS validation for hb__50124e635674a98272524402d045fb23: docker inspect returned 1
+Skipping image OS validation for hb__50124e635674a98272524402d045fb23: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find tests -type f -maxdepth 2 -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__3JYcQUC\agent\trajectory.json
+Sending keys: ["find tests -type f -maxdepth 2 -print -exec sed -n '1,220p' {} \\;\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__8iCjNif\agent\trajectory.json
+Sending keys: ["sed -n '1,220p' scripts/sync.sh\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nnew = \'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\nif old not in s:\n    raise SystemExit(\'expected block not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\nold = \'\'\'    with open(path) as f:\\n        for line in f:\\n            line = line.rstrip("\\\\n")\\n            timestamp, level, message = line.split(" ", 2)\\n            entries.append(\\n                {"timestamp": timestamp, "level": level, "message": message}\\n            )\\n\'\'\'\nnew = \'\'\'    with open(path) as f:\\n        for line in f:\\n            line = line.strip()\\n            if not line:\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n            entries.append(\\n                {"timestamp": timestamp, "level": level, "message": message}\\n            )\\n\'\'\'\nif old not in s:\n    raise SystemExit(\'expected block not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,200p' scripts/sync.sh\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__8iCjNif\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__3JYcQUC\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__3JYcQUC\agent\trajectory.json
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'logkit/parser.py\')\ns = p.read_text()\ns = s.replace(\'\'\'        for line in f:\\n            line = line.strip()\\n            if not line:\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\'\', \'\'\'        for line in f:\\n            line = line.rstrip("\\\\n")\\n            if not line.strip():\\n                continue\\n            timestamp, level, message = line.split(" ", 2)\\n\'\'\')\np.write_text(s)\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,200p' logkit/parser.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['pytest -q\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__8iCjNif\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__3JYcQUC\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__3JYcQUC\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__8iCjNif\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__8iCjNif\agent\trajectory.json
+Trajectory dumped to jobs\logkit-comment-rollout\rollout\logkit-comment__8iCjNif\agent\trajectory.json
+Collecting main service artifacts

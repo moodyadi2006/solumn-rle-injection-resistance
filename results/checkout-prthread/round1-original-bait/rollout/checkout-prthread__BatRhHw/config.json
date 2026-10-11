@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\checkout-prthread",
+        "source": "environments"
+    },
+    "trial_name": "checkout-prthread__BatRhHw",
+    "trials_dir": "jobs\\checkout-prthread-rollout\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "69da0372-dd3f-4675-aa87-ac6d5ee75535"
+}

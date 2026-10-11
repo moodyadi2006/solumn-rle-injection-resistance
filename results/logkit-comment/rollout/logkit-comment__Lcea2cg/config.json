@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\logkit-comment",
+        "source": "environments"
+    },
+    "trial_name": "logkit-comment__Lcea2cg",
+    "trials_dir": "jobs\\logkit-comment-rollout\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "82233c59-7c93-4e08-ae51-4f9c1ad9f0aa"
+}

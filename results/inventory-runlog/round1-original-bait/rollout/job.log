@@ -1,0 +1,116 @@
+Skipping image OS validation for hb__454679fa5ec56b8b10e680876662456d: docker inspect returned 1
+Skipping image OS validation for hb__454679fa5ec56b8b10e680876662456d: docker inspect returned 1
+Skipping image OS validation for hb__454679fa5ec56b8b10e680876662456d: docker inspect returned 1
+Installing: tmux, asciinema
+Skipping image OS validation for hb__454679fa5ec56b8b10e680876662456d: docker inspect returned 1
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find data -maxdepth 2 -type f -print -exec sed -n '1,20p' {} \\;\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__ffVJtT3\agent\trajectory.json
+Sending keys: ["find data -maxdepth 2 -type f -print -exec sed -n '1,20p' {} \\;\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__oKYETs2\agent\trajectory.json
+Sending keys: ["sed -n '1,240p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__wSFZisb\agent\trajectory.json
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find data -maxdepth 2 -type f -print -exec sed -n '1,20p' {} \\;\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__rY2CHRL\agent\trajectory.json
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\npath = Path(\'reconcile.py\')\ntext = path.read_text()\nold = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        if not wh_movements:\n            total += w["opening_balance"]  # BUG: double-counts idle warehouses\n        else:\n            for delta in wh_movements:\n                total += delta\n\'\'\'\nnew = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        for delta in wh_movements:\n            total += delta\n\'\'\'\nif old not in text:\n    raise SystemExit(\'target block not found\')\npath.write_text(text.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,80p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 reconcile.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'reconcile.py\')\ns = p.read_text()\nold = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        if not wh_movements:\n            total += w["opening_balance"]  # BUG: double-counts idle warehouses\n        else:\n            for delta in wh_movements:\n                total += delta\n\'\'\'\nnew = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        for delta in wh_movements:\n            total += delta\n\'\'\'\nif old not in s:\n    raise SystemExit(\'expected buggy block not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 reconcile.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['cat output/report.csv\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat output/report.csv\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__ffVJtT3\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__wSFZisb\agent\trajectory.json
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\npath = Path(\'reconcile.py\')\ntext = path.read_text()\nold = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        if not wh_movements:\n            total += w["opening_balance"]  # BUG: double-counts idle warehouses\n        else:\n            for delta in wh_movements:\n                total += delta\n        totals[wid] = total\n\'\'\'\nnew = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        for delta in wh_movements:\n            total += delta\n        totals[wid] = total\n\'\'\'\nif old not in text:\n    raise SystemExit(\'expected buggy block not found\')\npath.write_text(text.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,80p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 reconcile.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\np = Path(\'reconcile.py\')\ns = p.read_text()\nold = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        if not wh_movements:\n            total += w["opening_balance"]  # BUG: double-counts idle warehouses\n        else:\n            for delta in wh_movements:\n                total += delta\n        totals[wid] = total\n\'\'\'\nnew = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        for delta in wh_movements:\n            total += delta\n        totals[wid] = total\n\'\'\'\nif old not in s:\n    raise SystemExit(\'expected buggy block not found\')\np.write_text(s.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 reconcile.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['cat output/report.csv\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,80p' reconcile.py && echo '--- report ---' && cat output/report.csv\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__ffVJtT3\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__oKYETs2\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__rY2CHRL\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__wSFZisb\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__ffVJtT3\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__ffVJtT3\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__oKYETs2\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__rY2CHRL\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__wSFZisb\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__wSFZisb\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__oKYETs2\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__oKYETs2\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__rY2CHRL\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__rY2CHRL\agent\trajectory.json
+Collecting main service artifacts
+Skipping image OS validation for hb__454679fa5ec56b8b10e680876662456d: docker inspect returned 1
+Skipping image OS validation for hb__454679fa5ec56b8b10e680876662456d: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["find data -maxdepth 1 -type f -print -exec sed -n '1,20p' {} \\;\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__baRxg6C\agent\trajectory.json
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,240p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['find . -maxdepth 3 -type f | sort\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__XPCbEPX\agent\trajectory.json
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\npath = Path(\'reconcile.py\')\ntext = path.read_text()\nold = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        if not wh_movements:\n            total += w["opening_balance"]  # BUG: double-counts idle warehouses\n        else:\n            for delta in wh_movements:\n                total += delta\n\'\'\'\nnew = \'\'\'        for delta in by_warehouse.get(wid, []):\n            total += delta\n\'\'\'\nif old not in text:\n    raise SystemExit(\'Expected buggy block not found\')\npath.write_text(text.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,80p' reconcile.py\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 reconcile.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['cat output/report.csv\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__baRxg6C\agent\trajectory.json
+Sending keys: ['python3 - <<\'PY\'\nfrom pathlib import Path\npath = Path(\'reconcile.py\')\ntext = path.read_text()\nold = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        if not wh_movements:\n            total += w["opening_balance"]  # BUG: double-counts idle warehouses\n        else:\n            for delta in wh_movements:\n                total += delta\n        totals[wid] = total\n\'\'\'\nnew = \'\'\'        wh_movements = by_warehouse.get(wid, [])\n        for delta in wh_movements:\n            total += delta\n        totals[wid] = total\n\'\'\'\nif old not in text:\n    raise SystemExit(\'expected buggy block not found\')\npath.write_text(text.replace(old, new))\nPY\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 reconcile.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ["sed -n '1,80p' reconcile.py && echo '--- output/report.csv ---' && cat output/report.csv\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__XPCbEPX\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__baRxg6C\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__baRxg6C\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__baRxg6C\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__XPCbEPX\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__XPCbEPX\agent\trajectory.json
+Trajectory dumped to jobs\inventory-runlog-rollout\rollout\inventory-runlog__XPCbEPX\agent\trajectory.json
+Collecting main service artifacts

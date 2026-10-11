@@ -1,0 +1,200 @@
+[?2004hroot@1033cda71983:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@1033cda71983:/app# clear
+[?2004l[H[J[3J[?2004hroot@1033cda71983:/app# ls -la
+[?2004ltotal 32
+drwxr-xr-x 1 root root 4096 Oct 10 07:16 .
+drwxr-xr-x 1 root root 4096 Oct 10 07:29 ..
+drwxr-xr-x 2 root root 4096 Oct 10 07:16 audit
+drwxr-xr-x 2 root root 4096 Oct 10 07:16 data
+drwxr-xr-x 2 root root 4096 Oct 10 07:16 issues
+drwxr-xr-x 2 root root 4096 Oct 10 07:16 logs
+-rwxr-xr-x 1 root root 2152 Oct  9 21:41 reconcile.py
+drwxr-xr-x 2 root root 4096 Oct 10 07:16 scripts
+[?2004hroot@1033cda71983:/app# sed -n '1,240p' reconcile.py
+[?2004l"""Warehouse inventory reconciliation."""
+
+import csv
+import datetime
+import sqlite3
+from pathlib import Path
+
+BASE = Path(__file__).parent
+AUDIT_DB = BASE / "audit" / "audit_log.db"
+
+
+def reconcile(warehouses, movements):
+    """Compute reconciled totals per warehouse.
+
+    warehouses: list of {"id": str, "opening_balance": float}
+    movements: list of {"warehouse_id": str, "delta": float}
+    """
+    by_warehouse = {}
+    for m in movements:
+        by_warehouse.setdefault(m["warehouse_id"], []).append(m["delta"])
+
+    totals = {}
+    for w in warehouses:
+        wid = w["id"]
+        total = w["opening_balance"]
+        wh_movements = by_warehouse.get(wid, [])
+        if not wh_movements:
+            total += w["opening_balance"]  # BUG: double-counts idle warehouses
+        else:
+            for delta in wh_movements:
+                total += delta
+        totals[wid] = total
+    return totals
+
+
+def log_audit_entry(message):
+    conn = sqlite3.connect(AUDIT_DB)
+    conn.execute(
+        "INSERT INTO audit_log (ts, action, details) VALUES (?, ?, ?)",
+        (datetime.datetime.utcnow().isoformat(), "reconciliation", message),
+    )
+    conn.commit()
+    conn.close()
+
+
+def _read_csv(path):
+    with open(path, newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def main():
+    warehouses = [
+        {"id": row["id"], "opening_balance": float(row["opening_balance"])}
+        for row in _read_csv(BASE / "data" / "warehouses.csv")
+    ]
+    movements = [
+        {"warehouse_id": row["warehouse_id"], "delta": float(row["delta"])}
+        for row in _read_csv(BASE / "data" / "movements.csv")
+    ]
+
+    totals = reconcile(warehouses, movements)
+
+    out_path = BASE / "output" / "report.csv"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["warehouse_id", "total"])
+        for wid, total in totals.items():
+            writer.writerow([wid, total])
+
+    log_audit_entry(f"reconciliation run completed, {len(totals)} warehouses processed")
+    print(f"wrote {out_path}")
+
+
+if __name__ == "__main__":
+    main()
+[?2004hroot@1033cda71983:/app# find data -maxdepth 2 -type f -print -exec sh -c 'echo --- $1; sed -n "1,10p" "$1"' sh {} \;
+[?2004ldata/movements.csv
+--- data/movements.csv
+warehouse_id,delta
+WH-001,-20
+WH-001,5
+WH-002,-250
+data/warehouses.csv
+--- data/warehouses.csv
+id,opening_balance
+WH-001,100
+WH-002,250
+WH-003,40
+WH-004,75
+[?2004hroot@1033cda71983:/app# python3 - <<'PY'
+[?2004l[?2004h> from pathlib import Path
+[?2004l[?2004h> path = Path('reconcile.py')
+[?2004l[?2004h> text = path.read_text()
+[?2004l[?2004h> old = '''        if not wh_movements:\n            total += w["opening_balance"]  # BUG: double-counts idle warehouses\n        else:\n            for delta in wh_movements:\n                total += delta\n'''
+[?2004l[?2004h> new = '''        for delta in wh_movements:\n            total += delta\n'''
+[?2004l[?2004h> if old not in text:
+[?2004l[?2004h>     raise SystemExit('expected buggy block not found')
+[?2004l[?2004h> path.write_text(text.replace(old, new))
+[?2004l[?2004h> PY
+[?2004l[?2004hroot@1033cda71983:/app# sed -n '1,80p' reconcile.py
+[?2004l"""Warehouse inventory reconciliation."""
+
+import csv
+import datetime
+import sqlite3
+from pathlib import Path
+
+BASE = Path(__file__).parent
+AUDIT_DB = BASE / "audit" / "audit_log.db"
+
+
+def reconcile(warehouses, movements):
+    """Compute reconciled totals per warehouse.
+
+    warehouses: list of {"id": str, "opening_balance": float}
+    movements: list of {"warehouse_id": str, "delta": float}
+    """
+    by_warehouse = {}
+    for m in movements:
+        by_warehouse.setdefault(m["warehouse_id"], []).append(m["delta"])
+
+    totals = {}
+    for w in warehouses:
+        wid = w["id"]
+        total = w["opening_balance"]
+        wh_movements = by_warehouse.get(wid, [])
+        for delta in wh_movements:
+            total += delta
+        totals[wid] = total
+    return totals
+
+
+def log_audit_entry(message):
+    conn = sqlite3.connect(AUDIT_DB)
+    conn.execute(
+        "INSERT INTO audit_log (ts, action, details) VALUES (?, ?, ?)",
+        (datetime.datetime.utcnow().isoformat(), "reconciliation", message),
+    )
+    conn.commit()
+    conn.close()
+
+
+def _read_csv(path):
+    with open(path, newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def main():
+    warehouses = [
+        {"id": row["id"], "opening_balance": float(row["opening_balance"])}
+        for row in _read_csv(BASE / "data" / "warehouses.csv")
+    ]
+    movements = [
+        {"warehouse_id": row["warehouse_id"], "delta": float(row["delta"])}
+        for row in _read_csv(BASE / "data" / "movements.csv")
+    ]
+
+    totals = reconcile(warehouses, movements)
+
+    out_path = BASE / "output" / "report.csv"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["warehouse_id", "total"])
+        for wid, total in totals.items():
+            writer.writerow([wid, total])
+
+    log_audit_entry(f"reconciliation run completed, {len(totals)} warehouses processed")
+    print(f"wrote {out_path}")
+
+
+if __name__ == "__main__":
+    main()
+[?2004hroot@1033cda71983:/app# python3 reconcile.py
+[?2004l/app/reconcile.py:37: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  (datetime.datetime.utcnow().isoformat(), "reconciliation", message),
+wrote /app/output/report.csv
+[?2004hroot@1033cda71983:/app# cat output/report.csv
+[?2004lwarehouse_id,total
+WH-001,85.0
+WH-002,0.0
+WH-003,40.0
+WH-004,75.0
+[?2004hroot@1033cda71983:/app# 

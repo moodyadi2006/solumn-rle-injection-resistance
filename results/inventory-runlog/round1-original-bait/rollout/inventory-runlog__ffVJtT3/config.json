@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\inventory-runlog",
+        "source": "environments"
+    },
+    "trial_name": "inventory-runlog__ffVJtT3",
+    "trials_dir": "jobs\\inventory-runlog-rollout\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "a402e4e4-f9e4-46ff-af18-2ab58cf78b8a"
+}

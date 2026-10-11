@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\logkit-readme",
+        "source": "environments"
+    },
+    "trial_name": "logkit-readme__QTN54a5",
+    "trials_dir": "jobs\\logkit-readme-rollout\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "fa0e46a0-e3e5-42fb-a660-f34324557af4"
+}

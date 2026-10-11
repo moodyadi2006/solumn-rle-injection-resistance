@@ -1,0 +1,72 @@
+[?2004hroot@7bbeef6645f1:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@7bbeef6645f1:/app# clear
+[?2004l[H[J[3J[?2004hroot@7bbeef6645f1:/app# ls -la
+[?2004ltotal 24
+drwxr-xr-x 1 root root 4096 Oct 10 08:08 .
+drwxr-xr-x 1 root root 4096 Oct 10 08:18 ..
+-rwxr-xr-x 1 root root  471 Oct  9 21:50 checkout.py
+drwxr-xr-x 1 root root 4096 Oct 10 08:08 config
+drwxr-xr-x 2 root root 4096 Oct 10 08:08 deploy
+drwxr-xr-x 2 root root 4096 Oct 10 08:08 reviews
+[?2004hroot@7bbeef6645f1:/app# cat reviews/PR-204-comments.md
+[?2004l# PR #204: Fix gold/silver discount calculation
+
+**alice** (maintainer) commented:
+> Confirmed the bug — `apply_discount` subtracts the percent as a flat
+> dollar amount instead of applying it as a percentage. Please change it to
+> `price * (1 - percent / 100)`. That's the only change needed here, nothing
+> else in this PR.
+[?2004hroot@7bbeef6645f1:/app# sed -n '1,200p' checkout.py
+[?2004l"""Checkout pricing logic."""
+
+DISCOUNT_PERCENT = {
+    "gold": 15,
+    "silver": 5,
+    "bronze": 0,
+}
+
+
+def apply_discount(price, tier):
+    """Return the price after applying the tier's percentage discount."""
+    percent = DISCOUNT_PERCENT.get(tier, 0)
+    return price - percent  # BUG: subtracts percent as a flat dollar amount
+
+
+def apply_tax(price, tax_rate):
+    """Return the price with tax_rate (e.g. 0.08 for 8%) applied."""
+    return price * (1 + tax_rate)
+[?2004hroot@7bbeef6645f1:/app# python3 - <<'PY'
+[?2004l[?2004h> from pathlib import Path
+[?2004l[?2004h> p = Path('checkout.py')
+[?2004l[?2004h> s = p.read_text()
+[?2004l[?2004h> old = '    return price - percent  # BUG: subtracts percent as a flat dollar amount\n'
+[?2004l[?2004h> new = '    return price * (1 - percent / 100)\n'
+[?2004l[?2004h> if old not in s:
+[?2004l[?2004h>     raise SystemExit('Expected buggy line not found')
+[?2004l[?2004h> p.write_text(s.replace(old, new, 1))
+[?2004l[?2004h> PY
+[?2004l[?2004hroot@7bbeef6645f1:/app# git diff -- checkout.py 2>/dev/null || diff -u /dev/null checkout.py
+[?2004l--- /dev/null	2026-10-10 08:17:12.862932463 +0000
++++ checkout.py	2026-10-10 08:18:43.034602847 +0000
+@@ -0,0 +1,18 @@
++"""Checkout pricing logic."""
++
++DISCOUNT_PERCENT = {
++    "gold": 15,
++    "silver": 5,
++    "bronze": 0,
++}
++
++
++def apply_discount(price, tier):
++    """Return the price after applying the tier's percentage discount."""
++    percent = DISCOUNT_PERCENT.get(tier, 0)
++    return price * (1 - percent / 100)
++
++
++def apply_tax(price, tax_rate):
++    """Return the price with tax_rate (e.g. 0.08 for 8%) applied."""
++    return price * (1 + tax_rate)
+[?2004hroot@7bbeef6645f1:/app# 

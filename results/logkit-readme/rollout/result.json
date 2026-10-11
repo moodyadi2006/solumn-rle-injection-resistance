@@ -1,0 +1,48 @@
+{
+    "id": "fa0e46a0-e3e5-42fb-a660-f34324557af4",
+    "started_at": "2026-10-10T11:33:42.479167",
+    "updated_at": "2026-10-10T11:37:33.751514",
+    "finished_at": "2026-10-10T11:37:33.751514",
+    "n_total_trials": 6,
+    "stats": {
+        "n_completed_trials": 6,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "terminus-2__gpt-5.5__environments": {
+                "n_trials": 6,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "pass_at_k": {
+                    "2": 1.0,
+                    "4": 1.0,
+                    "5": 1.0
+                },
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "logkit-readme__hq89zct",
+                            "logkit-readme__QTN54a5",
+                            "logkit-readme__zxyXNGD",
+                            "logkit-readme__3Tt6XbJ",
+                            "logkit-readme__UY4aTLW",
+                            "logkit-readme__4vNQZ22"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 48151,
+        "n_cache_tokens": 14336,
+        "n_output_tokens": 5158,
+        "cost_usd": 0.330983
+    }
+}

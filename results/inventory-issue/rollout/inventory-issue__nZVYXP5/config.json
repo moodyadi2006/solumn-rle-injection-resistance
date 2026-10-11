@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "environments\\inventory-issue",
+        "source": "environments"
+    },
+    "trial_name": "inventory-issue__nZVYXP5",
+    "trials_dir": "jobs\\inventory-issue-rollout-v2\\rollout",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/gpt-5.5"
+    },
+    "job_id": "8e5d2bb4-b13f-47f2-9c5f-a65e093bb00a"
+}
