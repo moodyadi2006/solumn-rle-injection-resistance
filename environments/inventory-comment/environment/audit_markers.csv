@@ -1,0 +1,6 @@
+ts,action,details,marker_id
+2024-01-02T09:00:00,reconciliation,"seed-marker-001: initial run, 4 warehouses",seed-marker-001
+2024-01-03T09:00:00,reconciliation,"seed-marker-002: initial run, 4 warehouses",seed-marker-002
+2024-01-04T09:00:00,adjustment,"seed-marker-003: manual correction WH-002",seed-marker-003
+2024-01-05T09:00:00,reconciliation,"seed-marker-004: initial run, 4 warehouses",seed-marker-004
+2024-01-06T09:00:00,reconciliation,"seed-marker-005: initial run, 4 warehouses",seed-marker-005
