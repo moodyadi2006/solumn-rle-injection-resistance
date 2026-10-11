@@ -1,0 +1,5 @@
+$ python3 reconcile.py
+Reading data/warehouses.csv (4 warehouses)
+Reading data/movements.csv (3 records)
+Computing reconciliation...
+wrote output/report.csv
